@@ -1,0 +1,80 @@
+{
+  "chosen_k": 3,
+  "selection_rule": "highest silhouette score among k >= 3",
+  "k_scores": [
+    {
+      "k": 2,
+      "inertia": 27669.49743714545,
+      "silhouette": 0.2902363438045049
+    },
+    {
+      "k": 3,
+      "inertia": 21780.936072729848,
+      "silhouette": 0.3167055609099855
+    },
+    {
+      "k": 4,
+      "inertia": 18208.047973984685,
+      "silhouette": 0.25789187594776053
+    },
+    {
+      "k": 5,
+      "inertia": 16604.272019522927,
+      "silhouette": 0.22255531888757335
+    },
+    {
+      "k": 6,
+      "inertia": 15206.412405882433,
+      "silhouette": 0.21853394013021954
+    },
+    {
+      "k": 7,
+      "inertia": 14142.022318641748,
+      "silhouette": 0.21896900231178
+    },
+    {
+      "k": 8,
+      "inertia": 13278.430879465992,
+      "silhouette": 0.2161071339230201
+    },
+    {
+      "k": 9,
+      "inertia": 12552.797331105721,
+      "silhouette": 0.20980085999432144
+    },
+    {
+      "k": 10,
+      "inertia": 11874.12501222901,
+      "silhouette": 0.21487797033490214
+    }
+  ],
+  "pca_explained_variance": [
+    0.5027604342936953,
+    0.22214344528634145
+  ],
+  "pca_loadings": {
+    "pc1": {
+      "recency_days": -0.348268804005893,
+      "frequency": 0.4749288259233277,
+      "monetary": 0.5111157328406073,
+      "avg_order_value": 0.2954596602435269,
+      "unique_products": 0.44811094372613586,
+      "tenure_days": 0.10781211467729031,
+      "avg_days_between_orders": -0.3036262131579955
+    },
+    "pc2": {
+      "recency_days": 0.40284840245221276,
+      "frequency": 0.08111523164618058,
+      "monetary": 0.1434333552114726,
+      "avg_order_value": 0.15240417537097298,
+      "unique_products": 0.12377386305911417,
+      "tenure_days": 0.7259409101694747,
+      "avg_days_between_orders": 0.4949981308497012
+    }
+  },
+  "cluster_names": {
+    "0": "Recent \u00b7 Occasional \u00b7 Low-spend",
+    "1": "Lapsed \u00b7 Occasional \u00b7 Low-spend",
+    "2": "Recent \u00b7 Frequent \u00b7 High-spend"
+  }
+}

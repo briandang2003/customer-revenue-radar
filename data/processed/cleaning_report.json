@@ -1,0 +1,13 @@
+{
+  "raw_rows": 1067371,
+  "exact_duplicates": 34335,
+  "cancellations_and_adjustments": 19110,
+  "cancelled_sales": 6209,
+  "non_positive_quantity": 3393,
+  "non_positive_price": 2619,
+  "non_product_codes": 4343,
+  "missing_customer_id": 226838,
+  "clean_rows": 770524,
+  "customers": 5839,
+  "invoices": 36332
+}

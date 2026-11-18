@@ -1,0 +1,24 @@
+# Claude Code files (kept locally, never pushed)
+CLAUDE.md
+.claude/
+
+# Python
+.venv/
+__pycache__/
+*.pyc
+.pytest_cache/
+.ipynb_checkpoints/
+
+# Data: the raw dataset and derived tables are rebuilt by `python -m src.pipeline`
+data/raw/*
+data/processed/*
+!data/raw/.gitkeep
+!data/processed/.gitkeep
+!data/processed/cleaning_report.json
+
+# OS / editors / secrets
+.DS_Store
+.idea/
+.vscode/
+.env
+.gradio/
