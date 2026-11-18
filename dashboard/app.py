@@ -36,8 +36,8 @@ def load_artifacts() -> dict:
 
 
 def kpi_cards(k: dict) -> str:
-    cards = [("Revenue", f"£{k['revenue']:,.0f}"), ("Orders", f"{k['orders']:,}"),
-             ("Avg order value", f"£{k['avg_order_value']:,.2f}"), ("Customers", f"{k['customers']:,}")]
+    cards = [("Revenue", f"${k['revenue']:,.0f}"), ("Orders", f"{k['orders']:,}"),
+             ("Avg order value", f"${k['avg_order_value']:,.2f}"), ("Customers", f"{k['customers']:,}")]
     items = "".join(f"<div class='kpi'><span>{label}</span><b>{value}</b></div>" for label, value in cards)
     return f"<div class='kpis'>{items}</div>"
 
@@ -157,7 +157,7 @@ def build_app(data: dict) -> gr.Blocks:
             for name in ("At-risk", "Inactive", "High-value"):
                 row = summary.set_index("segment").loc[name]
                 gr.Markdown(f"### {name} · {int(row['customers']):,} customers · "
-                            f"£{row['total_revenue']:,.0f} lifetime revenue\n"
+                            f"${row['total_revenue']:,.0f} lifetime revenue\n"
                             f"**Strategy:** {RETENTION_PLAYBOOK[name]}")
                 gr.Dataframe(segment_customers(predictions, name), interactive=False,
                              max_height=300)

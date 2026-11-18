@@ -22,17 +22,17 @@ def _style(fig: go.Figure, title: str) -> go.Figure:
 def monthly_trend(monthly: pd.DataFrame) -> go.Figure:
     fig = go.Figure()
     fig.add_bar(x=monthly["month"], y=monthly["orders"], name="Orders",
-                marker_color="#cbd5e1", yaxis="y2")
-    fig.add_scatter(x=monthly["month"], y=monthly["revenue"], name="Revenue (£)",
+                marker_color="#cbd5e1", opacity=0.45, yaxis="y2")
+    fig.add_scatter(x=monthly["month"], y=monthly["revenue"], name="Revenue ($)",
                     mode="lines+markers", line=dict(color=PRIMARY, width=3))
-    fig.update_layout(yaxis=dict(title="Revenue (£)"),
+    fig.update_layout(yaxis=dict(title="Revenue ($)"),
                       yaxis2=dict(title="Orders", overlaying="y", side="right", showgrid=False))
     return _style(fig, "Monthly revenue and orders")
 
 
 def country_bar(countries: pd.DataFrame) -> go.Figure:
     fig = px.bar(countries.sort_values("revenue"), x="revenue", y="country", orientation="h",
-                 color_discrete_sequence=[PRIMARY], labels={"revenue": "Revenue (£)", "country": ""})
+                 color_discrete_sequence=[PRIMARY], labels={"revenue": "Revenue ($)", "country": ""})
     return _style(fig, "Revenue by country")
 
 
@@ -40,14 +40,14 @@ def product_bar(products: pd.DataFrame) -> go.Figure:
     data = products.assign(label=products["description"].str.slice(0, 32))
     fig = px.bar(data.sort_values("revenue"), x="revenue", y="label", orientation="h",
                  color_discrete_sequence=[SECONDARY], hover_data=["stock_code", "units"],
-                 labels={"revenue": "Revenue (£)", "label": ""})
+                 labels={"revenue": "Revenue ($)", "label": ""})
     return _style(fig, "Top products by revenue")
 
 
 def weekday_hour_heatmap(data: pd.DataFrame) -> go.Figure:
     grid = data.pivot_table(index="weekday", columns="hour", values="revenue", fill_value=0)
     fig = px.imshow(grid, color_continuous_scale="Blues", aspect="auto",
-                    labels={"x": "Hour of day", "y": "", "color": "Revenue (£)"},
+                    labels={"x": "Hour of day", "y": "", "color": "Revenue ($)"},
                     y=[WEEKDAYS[d] for d in grid.index])
     return _style(fig, "When customers buy (revenue by weekday and hour)")
 

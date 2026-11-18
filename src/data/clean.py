@@ -6,7 +6,7 @@ decision is documented with its impact.
 
 import pandas as pd
 
-from src.config import get_logger
+from src.config import GBP_TO_USD, get_logger
 
 log = get_logger(__name__)
 
@@ -46,6 +46,7 @@ def clean_transactions(raw: pd.DataFrame) -> tuple[pd.DataFrame, dict]:
     clean = df.loc[keep].assign(
         customer_id=lambda d: d["customer_id"].astype("int64"),
         description=lambda d: d["description"].fillna("").str.strip(),
+        price=lambda d: d["price"] * GBP_TO_USD,  # all money is reported in USD
         revenue=lambda d: (d["quantity"] * d["price"]).round(2),
     ).reset_index(drop=True)
 

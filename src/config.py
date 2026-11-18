@@ -28,6 +28,10 @@ SVM_MODEL = MODELS_DIR / "svm.joblib"
 
 RANDOM_SEED = 42
 
+# The raw prices are in British pounds. Everything downstream is reported in US dollars,
+# converted at one fixed rate: roughly the average GBP->USD rate over Dec 2009 - Dec 2011.
+GBP_TO_USD = 1.58
+
 # Clustering: candidate numbers of clusters to evaluate.
 CLUSTER_K_RANGE = range(2, 11)
 

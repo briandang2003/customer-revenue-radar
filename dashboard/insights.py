@@ -16,7 +16,7 @@ RETENTION_PLAYBOOK = {
 
 
 def _money(value: float) -> str:
-    return f"£{value:,.0f}"
+    return f"${value:,.0f}"
 
 
 def recommendations(summary: pd.DataFrame, predictions: pd.DataFrame,

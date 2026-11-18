@@ -1,6 +1,8 @@
+import pytest
 import pandas as pd
 
 from src.analytics.rfm import SEGMENT_DESCRIPTIONS, customer_features, rfm_segments
+from src.config import GBP_TO_USD
 
 KNOWN_CUSTOMER = 99999  # hand-built customer in conftest.py
 
@@ -15,7 +17,7 @@ def test_rfm_values_for_hand_checked_customer(clean):
     # Assert: orders on 2010-03-01 (2*5 + 1*3) and 2010-06-01 12:00 (4*2.5)
     assert known["recency_days"] == 29
     assert known["frequency"] == 2
-    assert known["monetary"] == 23.0
+    assert known["monetary"] == pytest.approx(23.0 * GBP_TO_USD)  # 23 GBP converted to USD
     assert known["unique_products"] == 2
     assert known["country"] == "France"
 
